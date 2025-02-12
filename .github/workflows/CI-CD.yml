@@ -1,4 +1,4 @@
-name: CI
+name: CI-CD
 
 on:
   push:
@@ -76,11 +76,9 @@ jobs:
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ env.VERCEL_TOKEN }}
 
-      # - name: Database migration
-      #   env:
-      #     DATABASE_URL: ${{ env.DATABASE_URL }}
-      #   run: |
-      #     pnpm db:migrate
+      - name: Database migration
+        run: |
+          pnpm db:migrate
 
       - name: Deploy Project Artifacts to Vercel
         run: |
