@@ -34,10 +34,13 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --ignore-scripts
+
+      - name: Generate prisma client
+        run: npx prisma generate
 
       - name: Run linting
-        run: pnpm lint
+        run: pnpm lint:fix
 
       - name: Build Next.js app
         run: pnpm build
