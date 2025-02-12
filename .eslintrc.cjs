@@ -4,13 +4,54 @@ const config = {
   parserOptions: {
     project: true,
   },
-  plugins: ["@typescript-eslint", "simple-import-sort", "unused-imports"],
+  plugins: [
+    "@typescript-eslint",
+    "simple-import-sort",
+    "unused-imports",
+    "boundaries",
+  ],
   extends: [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
     "plugin:prettier/recommended",
   ],
+  settings: {
+    "boundaries/include": ["src/**/*"],
+    "boundaries/elements": [
+      {
+        mode: "full",
+        type: "shadcn-components",
+        pattern: ["src/components/ui/**/*"],
+      },
+      {
+        mode: "full",
+        type: "feature",
+        capture: ["featureName"],
+        pattern: ["src/features/*/**/*"],
+      },
+      {
+        mode: "full",
+        type: "shared",
+        pattern: ["src/lib/**/*", "src/shared/**/*", "src/styles/**/*"],
+      },
+      {
+        mode: "full",
+        type: "server",
+        pattern: ["src/server/**/*", "src/env.js", "src/pages/api/**/*"],
+      },
+      {
+        mode: "full",
+        type: "client-api-util",
+        pattern: ["src/utils/api.ts"],
+      },
+      {
+        mode: "full",
+        type: "pages",
+        pattern: ["src/pages/*.tsx", "src/pages/authentication/**/*"],
+      },
+    ],
+  },
   rules: {
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
@@ -47,6 +88,36 @@ const config = {
         varsIgnorePattern: "^_",
         args: "after-used",
         argsIgnorePattern: "^_",
+      },
+    ],
+    "boundaries/no-unknown": ["error"],
+    "boundaries/no-unknown-files": ["error"],
+    "boundaries/element-types": [
+      "error",
+      {
+        default: "disallow",
+        rules: [
+          {
+            from: ["feature"],
+            allow: ["shadcn-components", "shared"],
+          },
+          {
+            from: ["server"],
+            allow: ["server"],
+          },
+          {
+            from: ["client-api-util"],
+            allow: ["server"],
+          },
+          {
+            from: ["pages"],
+            allow: ["client-api-util", "feature", "shared"],
+          },
+          {
+            from: ["shadcn-components"],
+            allow: ["shared"],
+          },
+        ],
       },
     ],
   },
