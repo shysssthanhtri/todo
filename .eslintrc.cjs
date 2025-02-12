@@ -50,6 +50,11 @@ const config = {
         type: "pages",
         pattern: ["src/pages/*.tsx", "src/pages/authentication/**/*"],
       },
+      {
+        mode: "full",
+        type: "generated-prisma-schema",
+        pattern: ["src/schemas/**/*"],
+      },
     ],
   },
   rules: {
@@ -116,6 +121,14 @@ const config = {
           {
             from: ["shadcn-components"],
             allow: ["shared"],
+          },
+          {
+            from: ["shared"],
+            allow: ["shared", "generated-prisma-schema", "client-api-util"],
+          },
+          {
+            from: ["generated-prisma-schema"],
+            allow: ["generated-prisma-schema"],
           },
         ],
       },
