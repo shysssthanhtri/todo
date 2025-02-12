@@ -8,14 +8,17 @@ on:
     branches:
       - "*"
 
-
-
 jobs:
-  build:
+  CI:
     runs-on: ubuntu-latest
 
     env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
+      DATABASE_URL: ${{ secrets.DATABASE_URL }} 
+      GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }} 
+      GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }} 
+      NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }} 
+      NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}  
 
     steps:
       - name: Checkout code
