@@ -1,6 +1,6 @@
 # Todo application
 
-![example workflow](https://github.com/github/docs/actions/workflows/CI-CD.yml/badge.svg)
+https://github.com/shysssthanhtri/todo/actions/workflows/WORKFLOW-FILE/badge.svg
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
