@@ -1,6 +1,10 @@
-# Create T3 App
+# Todo application
+
+![example workflow](https://github.com/github/docs/actions/workflows/CI-CD.yml/badge.svg)
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+
+URL: https://todo-nine-flax.vercel.app/
 
 ## Development
 
@@ -25,4 +29,4 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 
 ## How do I deploy this?
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Github action as CI-CD, deploys to Vercel.
