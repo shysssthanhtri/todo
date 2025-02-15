@@ -22,7 +22,7 @@ const config = {
       {
         mode: "full",
         type: "shadcn-components",
-        pattern: ["src/components/ui/**/*"],
+        pattern: ["src/components/ui/**/*", "src/hooks/**/*"],
       },
       {
         mode: "full",
@@ -125,7 +125,7 @@ const config = {
           },
           {
             from: ["shadcn-components"],
-            allow: ["shared"],
+            allow: ["shared", "shadcn-components"],
           },
           {
             from: ["shared"],
