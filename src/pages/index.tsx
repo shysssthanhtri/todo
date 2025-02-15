@@ -1,9 +1,9 @@
 import React from "react";
 
-import { AuthGuard } from "@/shared/guards/auth-guard";
+import { AppLayout } from "@/shared/components/app-layout";
 
 const Page = () => {
-  return <AuthGuard>Home page</AuthGuard>;
+  return <AppLayout>Home page</AppLayout>;
 };
 
 export default Page;

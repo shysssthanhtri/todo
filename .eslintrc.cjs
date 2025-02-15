@@ -116,7 +116,12 @@ const config = {
           },
           {
             from: ["pages"],
-            allow: ["client-api-util", "feature", "shared"],
+            allow: [
+              "client-api-util",
+              "feature",
+              "shared",
+              "shadcn-components",
+            ],
           },
           {
             from: ["shadcn-components"],
@@ -124,7 +129,12 @@ const config = {
           },
           {
             from: ["shared"],
-            allow: ["shared", "generated-prisma-schema", "client-api-util"],
+            allow: [
+              "shared",
+              "generated-prisma-schema",
+              "client-api-util",
+              "shadcn-components",
+            ],
           },
           {
             from: ["generated-prisma-schema"],
