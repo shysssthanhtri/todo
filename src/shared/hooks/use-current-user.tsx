@@ -19,11 +19,17 @@ type UseCurrentUserValue =
 
 export const useCurrentUser = (): UseCurrentUserValue => {
   const { status } = useSession();
-  const { data: user } = api.user.getCurrentUser.useQuery(undefined, {
-    enabled: status === "authenticated",
-  });
+  const { data: user, isLoading } = api.user.getCurrentUser.useQuery(
+    undefined,
+    {
+      enabled: status === "authenticated",
+    },
+  );
   if (status !== "authenticated") {
     return { status };
+  }
+  if (isLoading) {
+    return { status: "loading" };
   }
   if (!user) {
     return { status: "unauthenticated" };
