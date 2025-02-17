@@ -9,8 +9,8 @@ interface Props {
   children: React.ReactNode;
 }
 export const AppLayout = ({ children }: Props) => {
-  const persistedValue = useLocalStorage("app-sidebar", false);
-  const [isOpen, setIsOpen] = useState(false);
+  const persistedValue = useLocalStorage("app-sidebar", true);
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
