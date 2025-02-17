@@ -1,4 +1,3 @@
-import { Calendar, ChartArea, Check, Settings } from "lucide-react";
 import React from "react";
 
 import {
@@ -9,30 +8,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { Routes } from "@/shared/config/routes";
 
 export const AppSidebarContent = () => {
-  const items = [
-    {
-      title: "Today",
-      url: "/",
-      icon: Check,
-    },
-    {
-      title: "Planing",
-      url: "/",
-      icon: Calendar,
-    },
-    {
-      title: "Analytics",
-      url: "/",
-      icon: ChartArea,
-    },
-    {
-      title: "Setting",
-      url: "/",
-      icon: Settings,
-    },
-  ];
+  const items = [Routes.home, Routes.planning, Routes.analytic, Routes.setting];
 
   return (
     <SidebarContent>
@@ -40,11 +19,11 @@ export const AppSidebarContent = () => {
         <SidebarGroupContent>
           <SidebarMenu>
             {items.map((item) => (
-              <SidebarMenuItem key={item.title}>
+              <SidebarMenuItem key={item.url}>
                 <SidebarMenuButton asChild>
                   <a href={item.url}>
                     <item.icon />
-                    <span>{item.title}</span>
+                    <span>{item.shortTitle}</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
